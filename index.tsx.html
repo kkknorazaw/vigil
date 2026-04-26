@@ -1,0 +1,55 @@
+import React from 'react';
+import Head from 'next/head';
+
+const IndexPage: React.FC = () => {
+  return (
+    <>
+      <Head>
+        <title>Vigil 首页草图</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <header style={{position: 'sticky', top: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 56px', height: '64px', background: '#f7f6f2', borderBottom: '1px solid #e3dfd9'}}>
+        <div style={{fontFamily: 'Noto Serif SC, serif', fontSize: '30px', fontWeight: 700}}>Vigil<span style={{color: '#b31319'}}>+</span></div>
+        <nav style={{display: 'flex', gap: '34px', fontWeight: 600}}>
+          <a href="#" style={{borderBottom: '2px solid #b31319'}}>首页</a>
+          <a href="#analysis">地址检测</a>
+          <a href="#analysis">合约检测</a>
+          <a href="#analysis">项目尽调</a>
+          <a href="#examples">示例</a>
+          <a href="#">定价</a>
+          <a href="#">研究</a>
+          <a href="#">API</a>
+        </nav>
+        <div style={{display:'flex', gap:'18px'}}>
+          <span>中文⌄</span>
+          <button style={{background:'#b31319', color:'#fff', border:'none', padding:'0 18px', borderRadius:'6px', height:'40px'}}>开始分析</button>
+        </div>
+      </header>
+
+      <main style={{maxWidth:'1180px', margin:'0 auto'}}>
+        {/* Hero */}
+        <section style={{minHeight:'620px', display:'flex', justifyContent:'center', alignItems:'center', textAlign:'center', borderBottom:'1px solid #e3dfd9'}}>
+          <div style={{padding:'96px 0 80px', maxWidth:'780px'}}>
+            <div style={{display:'inline-block', padding:'6px 14px', borderRadius:'999px', border:'1px solid rgba(179,19,25,0.25)', color:'#b31319', marginBottom:'28px', fontWeight:700}}>Web3 风险分析 Agent</div>
+            <h1 style={{fontFamily:'Noto Serif SC, serif', fontSize:'clamp(46px, 6vw, 76px)', lineHeight:1.1, fontWeight:800}}>用 Agent 洞察链上风险，生成权威分析报告</h1>
+            <p style={{margin:'28px auto 0', color:'#5f5a54', lineHeight:1.9}}>Vigil 结合链上数据、公开信息与智能推理，帮助你识别钱包地址、智能合约和 Web3 项目的潜在风险，输出可查证、可追踪、可行动的分析结论。</p>
+            <div style={{display:'grid', gridTemplateColumns:'1fr 150px', margin:'34px auto 0', border:'1px solid #e3dfd9', borderRadius:'8px', overflow:'hidden'}}>
+              <input placeholder="输入钱包地址、合约地址、项目名称或官网..." style={{border:'0', padding:'0 22px', height:'56px', fontFamily:'DM Sans, sans-serif'}}/>
+              <button style={{background:'#b31319', color:'#fff', border:'none', fontWeight:700}}>开始分析 →</button>
+            </div>
+            <div style={{display:'flex', justifyContent:'center', gap:'12px', flexWrap:'wrap', marginTop:'20px', fontSize:'13px', color:'#8e8982'}}>
+              <span>示例：</span>
+              <span style={{border:'1px solid #e3dfd9', padding:'7px 14px', borderRadius:'999px', fontFamily:'JetBrains Mono, monospace'}}>0xfff4...83b2</span>
+              <span style={{border:'1px solid #e3dfd9', padding:'7px 14px', borderRadius:'999px', fontFamily:'JetBrains Mono, monospace'}}>0xC02a...6Cc2</span>
+              <span style={{border:'1px solid #e3dfd9', padding:'7px 14px', borderRadius:'999px', fontFamily:'JetBrains Mono, monospace'}}>Uniswap</span>
+              <span style={{border:'1px solid #e3dfd9', padding:'7px 14px', borderRadius:'999px', fontFamily:'JetBrains Mono, monospace'}}>EigenLayer</span>
+            </div>
+          </div>
+        </section>
+        {/* 其他板块可用同样方式占位 */}
+      </main>
+    </>
+  );
+};
+
+export default IndexPage;
