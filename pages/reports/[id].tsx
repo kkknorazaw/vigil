@@ -1,10 +1,11 @@
 import { useRouter } from "next/router";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { getReportById } from "@/data/reports";
+import { getReportById, reports } from "@/data/reports";
 
 export default function ReportPage() {
   const router = useRouter();
@@ -94,6 +95,17 @@ export default function ReportPage() {
     </main>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = () => ({
+  paths: reports.map((report) => ({
+    params: { id: report.id },
+  })),
+  fallback: false,
+});
+
+export const getStaticProps: GetStaticProps = () => ({
+  props: {},
+});
 
 function SummaryRow({ label, value, mono }: { label: string; value: string; mono?: boolean }) {
   return (

@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import Badge from "@/components/Badge";
 import Button from "@/components/Button";
 import Card from "@/components/Card";
@@ -66,6 +67,15 @@ export default function RunTracePage() {
     </main>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = () => ({
+  paths: [{ params: { id: mockAgentRun.id } }],
+  fallback: false,
+});
+
+export const getStaticProps: GetStaticProps = () => ({
+  props: {},
+});
 
 function SummaryRow({ label, value }: { label: string; value: string }) {
   return (

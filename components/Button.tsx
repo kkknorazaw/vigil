@@ -16,6 +16,16 @@ function classes(...values: Array<string | undefined | false>) {
   return values.filter(Boolean).join(" ");
 }
 
+function withBasePath(href: string) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+  if (!basePath || !href.startsWith("/") || href.startsWith("//")) {
+    return href;
+  }
+
+  return `${basePath}${href === "/" ? "" : href}`;
+}
+
 export default function Button({
   children,
   variant = "primary",
@@ -31,7 +41,7 @@ export default function Button({
 
   if (href) {
     return (
-      <a className={buttonClass} href={href} target={target} rel={rel}>
+      <a className={buttonClass} href={withBasePath(href)} target={target} rel={rel}>
         {children}
       </a>
     );
